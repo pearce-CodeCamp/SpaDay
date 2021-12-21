@@ -1,5 +1,7 @@
-﻿@{
-}
+﻿@*Here we are importing the ViewModels namespace*@
+@using SpaDay.ViewModels
+@*stating the type of ViewModel we are using in this particular view*@
+@model AddUserViewModel
 
 <h1>Sign Up Form</h1>
 
@@ -9,34 +11,29 @@
 }
 
 <form method="post" action="/user">
-    Username:
-    <br>
-    @if (ViewBag.error == null)
-    {
-        <input type="text" name="username" />
-    }
-    else
-    {
-        <input type="text" name="username" value="@ViewBag.userName" />
-    }
-    <br>
-    Email:
-    <br>
-    @if (ViewBag.error == null)
-    {
-        <input type="email" name="email" />
-    }
-    else
-    {
-        <input type="email" name="email" value="@ViewBag.eMail" />
-    }
-    <br>
-    Password:
-    <input type="password" name="password" />
-    <br>
-    Confirm Password:
-    <br>
-    <input type="password" name="verify" />
-    <br>
+    @*
+        binding each form input to the corresponding property in the
+        AddUserViewModel class
+    *@
+    <div class="form-group">
+        <label asp-for="Username">*Username</label>
+        <input asp-for="Username" autocomplete="off"/>
+        <span asp-validation-for="Username"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password">*Password</label>
+        <input asp-for="Password" type="password" autocomplete="off"/>
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="VerifyPassword">*Verify your password</label>
+        <input asp-for="VerifyPassword" type="password" autocomplete="off"/>
+        <span asp-validation-for="VerifyPassword"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" autocomplete="off"/>
+        <span asp-validation-for="Email"></span>
+    </div>
     <input type='submit' value='Submit'>
 </form>
