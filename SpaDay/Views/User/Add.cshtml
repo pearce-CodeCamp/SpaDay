@@ -5,11 +5,6 @@
 
 <h1>Sign Up Form</h1>
 
-@if (ViewBag.error != null)
-{
-    <p>@ViewBag.error</p>
-}
-
 <form method="post" action="/user">
     @*
         binding each form input to the corresponding property in the

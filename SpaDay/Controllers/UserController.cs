@@ -32,9 +32,6 @@ namespace SpaDay.Controllers
             // requirements setup with the annotations in the AddUserViewModel
             if (ModelState.IsValid)
             {
-                //check to see if Password and VerifyPassword match
-                if (addUserViewModel.Password == addUserViewModel.VerifyPassword)
-                {
                     User newUser = new User(
                         addUserViewModel.Username, 
                         addUserViewModel.Email,
@@ -42,11 +39,6 @@ namespace SpaDay.Controllers
                     );
 
                     return View("Index", newUser);
-                } else
-                {
-                    ViewBag.error = "Passwords didn't match!";
-                    return View("Add");
-                }
             }
 
             return View("Add");
