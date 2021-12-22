@@ -32,14 +32,14 @@ namespace SpaDay.Controllers
             // requirements setup with the annotations in the AddUserViewModel
             if (ModelState.IsValid)
             {
-                    User newUser = new User(
-                        addUserViewModel.Username, 
-                        addUserViewModel.Email,
-                        addUserViewModel.Password
-                    );
+                User newUser = new User(
+                    addUserViewModel.Username,
+                    addUserViewModel.Email,
+                    addUserViewModel.Password
+                );
 
-                    return View("Index", newUser);
-            }
+                return View("Index", newUser);
+            } 
 
             return View("Add");
         }
